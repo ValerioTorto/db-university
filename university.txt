@@ -1,0 +1,43 @@
+create database `db_university_schema`;
+use `db_university_schema`;
+
+create table `departments`(
+`id` CHAR(12) not null,
+`name` VARCHAR(255)not null,
+`address` VARCHAR(50)not null,
+`phone` BIGINT not null,
+`email` VARCHAR(50)not null,
+`website` VARCHAR(255)not null,
+`head_of_department` VARCHAR(100)not null,
+primary key (id)
+);
+create table `degrees`(
+`id` CHAR(12) not null,
+`departments_id` VARCHAR(255)not null,
+`name` VARCHAR(255)not null,
+`level`tinyint not null,
+`address` VARCHAR(50) not null,
+`email` VARCHAR(50)not null,
+`website` VARCHAR(255)not null,
+primary key (`id`),
+foreign key (`departments_id`) references departments(`id`)
+);
+create table `students`(
+`id` CHAR(12) not null,
+`degree_id` VARCHAR(20),
+`name` VARCHAR(20)not null,
+`surname` VARCHAR(30)not null,
+`date_of_birth` DATE not null,
+`fiscal_code` CHAR(16)not null,
+`enrolment_date` DATE not null,
+`registration_number` INT not null,
+`email` VARCHAR(50) not null,
+primary key (`id`),
+foreign key (`degree_id`) references degrees(`id`)
+);
+select * from `departments`; 
+select * from `degrees`; 
+select * from `students`;
+
+insert into `students` (`id`,`degree_id`,`name`,`surname`,`date_of_birth`,`fiscal_code`,`enrolment_date`,`registration_number`,`email`) values ('GHFOIU789UYT','socio40','pinco', 'pallino','1890/04/18', 'GHR98G48F980K', '2020/01/20', '5643432','pinco@gmail.com');
+delete from `students` where `email` = 'pinco@gmail.com';
