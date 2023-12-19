@@ -39,5 +39,6 @@ select * from `departments`;
 select * from `degrees`; 
 select * from `students`;
 
-insert into `students` (`id`,`degree_id`,`name`,`surname`,`date_of_birth`,`fiscal_code`,`enrolment_date`,`registration_number`,`email`) values ('GHFOIU789UYT','socio40','pinco', 'pallino','1890/04/18', 'GHR98G48F980K', '2020/01/20', '5643432','pinco@gmail.com');
+drop table `degrees`;
+
 delete from `students` where `email` = 'pinco@gmail.com';
